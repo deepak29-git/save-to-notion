@@ -1,11 +1,11 @@
-
-import './App.css';
+import { NotionExample } from "examples/useNotionExample";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      hello
-    </div>
+    <>
+      <NotionExample />
+    </>
   );
 }
 

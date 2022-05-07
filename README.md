@@ -1,1 +1,1 @@
-# save-to-notion
+# Save2Notion
