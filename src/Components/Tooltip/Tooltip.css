@@ -1,0 +1,8 @@
+.save{
+    padding: .5rem;
+    background-color: #2d2d2d;
+    color: white;
+    position: fixed;
+    cursor: pointer;
+    font-weight: 600;
+}
