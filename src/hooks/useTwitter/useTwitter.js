@@ -6,8 +6,8 @@ function useTwitter() {
   const [tweetData, setTweetData] = useState({ done: false });
   const TWITTER_SECRET = process.env.REACT_APP_TWITTER_SECRET;
 
-  async function lookupTweet(tweetId) {
-    // const tweetId = "1523216329746292742";
+  async function lookupTweet(tweetId="1523240861869387776") {
+    // const tweetId = "1523216329746292742"; //1522773228220944384
     const axiosParams = {
       method: "get",
       url: `/2/tweets/${tweetId}`,
@@ -30,11 +30,14 @@ function useTwitter() {
       if (error !== "") {
         console.error({ error, response });
       } else {
-        const media = response.includes.media.map((media) =>
+        const media = [];
+        if(response.includes){
+          media = response.includes.media.map((media) =>
           media.type === "photo"
             ? { type: media.type, url: media.url }
             : { type: media.type, url: media.preview_image_url }
         );
+        }
         setTweetData({
           text: response.data.text,
           media,
