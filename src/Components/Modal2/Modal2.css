@@ -1,30 +1,51 @@
-.modal-container {
-  background-color: var(--grey-color);
+.modal {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   height: 18rem;
   width: 20rem;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
 }
 
+.primary{
+  background-color: var(--grey-color);
+}
+
+.secondary{
+  background-color: var(--white-color);
+}
+
 .title-textbox {
+  resize: none;
   border: 2px solid var(--primary-color);
   border-radius: 10px;
   padding: 0.5rem;
   font-weight: 600;
+  margin: 1.5rem;
 }
 .title-textbox:focus {
   outline: none;
   box-shadow: 0px 0px 10px var(--primary-color);
 }
 
+.text {
+  margin: 0.5rem 0.5rem 0 0.5rem;
+}
+
+.text-container {
+  padding: 0.5rem 0;
+  width: 100%;
+  display: flex;
+  background-color: var(--white-color);
+}
+
 .flex-center {
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
+  width: 100%;
 }
 
 .btn {
@@ -40,6 +61,7 @@
 .save-to-notion {
   background-color: var(--primary-color);
   color: var(--white-color);
+  margin: 1rem;
 }
 
 .save-to-notion:hover {
@@ -47,9 +69,22 @@
 }
 
 .select-container {
-  width: 10rem;
+  width: 75%;
   height: 2rem;
   padding: 0.5rem;
+  border: none;
+}
+
+.image-box {
+  text-align: center;
+  width: 12rem;
+}
+
+.modal-image {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: auto;
 }
 
 .back {

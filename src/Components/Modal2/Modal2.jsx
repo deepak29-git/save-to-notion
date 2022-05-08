@@ -1,23 +1,30 @@
 import { useState } from "react";
 import "../Modal2/Modal2.css";
-export const Modal2 = () => {
+import pic from "../../assests/modal.png";
+export const Modal2 = ({ setTitle,title }) => {
   const [show, setShow] = useState(false);
 
+  const changeTitle = (e) =>{
+    setTitle(e.target.value);
+  }
+
   return (
-    <div className="modal-container">
+    <div className="main-container">
       {!show ? (
-        <div>
+        <div className="modal primary">
           <textarea
             autoFocus
-            name=""
+            value={title}
             className="title-textbox"
             cols="30"
-            rows="10"
+            rows="5"
+            onChange={(e) => changeTitle(e)}
           ></textarea>
           <div className="flex-center">
-            <div>
+            <div className="text-container">
+              <p className="margin-0 text">Add to:</p>
               <select className="select-container" name="" id="">
-              <option disabled className="option" value="Not select">
+                <option disabled className="option" value="Not select">
                   Not select
                 </option>
                 <option className="option" value="Text">
@@ -40,11 +47,16 @@ export const Modal2 = () => {
           </div>
         </div>
       ) : (
-        <div >
-          <div onClick={()=>setShow(false)} className="back btn">
-            <span class="material-symbols-outlined">arrow_back</span>
+        <div className="modal secondary">
+          <div onClick={() => setShow(false)} className="back btn">
+            <span className="material-symbols-outlined">arrow_back</span>
           </div>
-          <button className="save-to-notion btn ">Open in notion</button>
+
+          <img src={pic} className="modal-image" alt="img" />
+          <p className="image-box margin-0">
+            Your data has been stored to notion
+          </p>
+          <button className="save-to-notion btn">Open in notion</button>
         </div>
       )}
     </div>
