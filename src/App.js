@@ -1,10 +1,13 @@
 
 import './App.css';
+import { Button } from './Components/Button/Button';
+import { Modal } from './Components/Modal/Modal';
 
 function App() {
   return (
-    <div className="App">
-      hello
+    <div>
+      <Modal/>
+      <Button/>
     </div>
   );
 }
