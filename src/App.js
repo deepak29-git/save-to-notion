@@ -1,11 +1,14 @@
 import { NotionExample } from "examples/useNotionExample";
-import "./App.css";
+import './App.css';
+import { Button } from './Components/Button/Button';
+import { Modal } from './Components/Modal/Modal';
 
 function App() {
   return (
-    <>
-      <NotionExample />
-    </>
+    <div>
+      <Modal/>
+      <Button/>
+    </div>
   );
 }
 
