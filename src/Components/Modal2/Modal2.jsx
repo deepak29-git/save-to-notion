@@ -37,7 +37,7 @@ export const Modal2 = () => {
       console.log(tweetData, "sending for notion");
       save2Notion({ title, type: "tweet", ...tweetData });
     }
-  }, [tweetData]);
+  }, [tweetData, loading]);
 
   useEffect(() => {
     if (!notionLoading) {

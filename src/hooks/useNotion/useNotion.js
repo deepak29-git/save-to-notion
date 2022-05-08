@@ -1,7 +1,7 @@
 import { useAxios } from "../useAxios/useAxios";
 
 function useNotion() {
-  const { response, error, loading, requestData } = useAxios();
+  const {  loading, requestData } = useAxios();
   const NOTION_SECRET = process.env.REACT_APP_NOTION_SECRET;
   const NOTION_DATABASE_ID = process.env.REACT_APP_NOTION_DATABASE_ID;
 
