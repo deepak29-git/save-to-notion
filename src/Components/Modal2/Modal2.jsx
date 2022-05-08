@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export const Modal2 = () => {
   const [show, setShow] = useState(false);
-  const [type, setType] = useState("");
+  const [type, setType] = useState("text");
   const [title, setTitle] = useState("");
   const [data, setData] = useState("");
   const [actionText, setActionText] = useState("Save2Notion");
