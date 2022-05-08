@@ -2,7 +2,7 @@
     padding: 0.5rem;
     background-color: var(--greyish-black);
     color: var(--white-color);
-    position: fixed;
+    /* position: relative; */
     cursor: pointer;
     font-weight: 600;
 }

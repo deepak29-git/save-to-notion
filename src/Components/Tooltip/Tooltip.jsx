@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Tooltip.css";
 
 export const ToolTip = ({ setData, setIsDone, setTitle }) => {
-  const [range, setRange] = useState({ x: "0px", y: "0px" });
+  const [range, setRange] = useState({ x: "100px", y: "50px" });
   const pos = { top: range.x, left: range.y };
   const [showTooltip, setShowTooltip] = useState(false);
 

@@ -1,48 +1,101 @@
-import { useState } from "react";
+import pic from "assests/modal.png";
 import "../Modal2/Modal2.css";
-import pic from "../../assests/modal.png";
-export const Modal2 = ({ setTitle,title }) => {
-  const [show, setShow] = useState(false);
+import { useNotion, useTwitter } from "hooks";
+import { useEffect, useState } from "react";
 
-  const changeTitle = (e) =>{
-    setTitle(e.target.value);
+export const Modal2 = () => {
+  const [show, setShow] = useState(false);
+  const [type, setType] = useState("");
+  const [title, setTitle] = useState("");
+  const [data, setData] = useState("");
+  const [actionText, setActionText] = useState("Save2Notion");
+
+  const { save2Notion, loading: notionLoading } = useNotion();
+  const { tweetData, loading, lookupTweet } = useTwitter();
+
+  function postToNotion() {
+    setActionText("Loading...");
+
+    if (type === "tweet") {
+      const tweetId = data.split("/")[5];
+      lookupTweet(tweetId);
+    } else if (type === "text") {
+      save2Notion({ title, type, text: data });
+    } else if (type === "image") {
+      save2Notion({
+        title,
+        type,
+        url: data
+      });
+    } else {
+      console.error(`Wrong type ${type}`);
+    }
   }
+
+  useEffect(() => {
+    if (!loading && tweetData.done) {
+      console.log(tweetData, "sending for notion");
+      save2Notion({ title, type: "tweet", ...tweetData });
+    }
+  }, [tweetData]);
+
+  useEffect(() => {
+    if (!notionLoading) {
+      console.log("Notion is done", notionLoading);
+      setShow(true);
+      setActionText("Save2Notion");
+    }
+  }, [notionLoading]);
 
   return (
     <div className="main-container">
       {!show ? (
         <div className="modal primary">
-          <textarea
+          <input
             autoFocus
             value={title}
             className="title-textbox"
             cols="30"
             rows="5"
-            onChange={(e) => changeTitle(e)}
-          ></textarea>
+            placeholder="Enter title..."
+            onChange={(e) => setTitle(e.target.value)}
+          ></input>
           <div className="flex-center">
             <div className="text-container">
               <p className="margin-0 text">Add to:</p>
-              <select className="select-container" name="" id="">
-                <option disabled className="option" value="Not select">
+              <select
+                className="select-container"
+                onChange={(e) => setType(e.target.value)}
+                value={type}
+              >
+                <option disabled className="option" value="none">
                   Not select
                 </option>
-                <option className="option" value="Text">
+                <option className="option" value="text">
                   Text
                 </option>
-                <option className="option" value="Image">
+                <option className="option" value="image">
                   Image
                 </option>
-                <option className="option" value="Tweet">
+                <option className="option" value="tweet">
                   Tweet
                 </option>
               </select>
             </div>
+            <input
+              autoFocus
+              value={data}
+              className="title-textbox"
+              cols="30"
+              rows="5"
+              placeholder="Enter here...."
+              onChange={(e) => setData(e.target.value)}
+            ></input>
             <button
-              onClick={() => setShow(true)}
+              onClick={() => postToNotion()}
               className="save-to-notion btn"
             >
-              Save to Notion
+              {actionText}
             </button>
           </div>
         </div>
