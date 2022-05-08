@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Tooltip.css";
 
-export const ToolTip = ({setData,setIsDone}) => {
+export const ToolTip = ({ setData, setIsDone, setTitle }) => {
   const [range, setRange] = useState({ x: "0px", y: "0px" });
   const pos = { top: range.x, left: range.y };
   const [showTooltip, setShowTooltip] = useState(false);
@@ -10,6 +10,7 @@ export const ToolTip = ({setData,setIsDone}) => {
     const data = window.getSelection().toString();
     setData(data);
     setIsDone(true);
+    setTitle(document.title);
     window.getSelection().removeAllRanges();
     setShowTooltip(false);
   };
@@ -19,8 +20,8 @@ export const ToolTip = ({setData,setIsDone}) => {
     if (data !== "") {
       setShowTooltip(true);
       setIsDone(false);
+      setRange({ y: `${e.pageX}px`, x: `${e.pageY}px` });
     }
-    setRange({ y: `${e.pageX}px`, x: `${e.pageY}px` });
   };
 
   useEffect(() => {

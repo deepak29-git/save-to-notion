@@ -1,0 +1,12 @@
+{
+  "name": "Save2Notion",
+  "version": "1.0.0",
+  "description": "Save data to notion in single click",
+  "manifest_version": 3,
+  "author": "Arpit Kumar, Deepak Goyal, Shubham Bajaj",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Save2Notion"
+  },
+  "permissions": ["activeTab"]
+}
