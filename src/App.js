@@ -6,7 +6,7 @@ import { Modal } from './Components/Modal/Modal';
 function App() {
   return (
     <div>
-      {/* <Modal/> */}
+      <Modal/>
       <Button/>
     </div>
   );
