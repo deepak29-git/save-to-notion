@@ -37,9 +37,12 @@ function useNotion() {
 
   function generateTweetBlock(text, media) {
     const separatedText = text.split("\n");
-    const paragraphs = separatedText.filter(p => p !== "").map((text) =>
-      generateParagraphBlock(text)
-    );
+    const paragraphs = separatedText
+      .filter((p) => p !== "")
+      .map((text) => generateParagraphBlock(text));
+    if (media.length === 0) {
+      return [...paragraphs];
+    }
     const images = media
       .filter((m) => m.type === "photo")
       .map((m) => generateImageBlock(m.url));
