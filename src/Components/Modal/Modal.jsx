@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {  useState } from "react";
 import "../Modal/Modal.css";
 
 export const Modal = () => {
@@ -11,13 +11,11 @@ export const Modal = () => {
     }
   };
 
-  const saveToNotionHandler=()=>{
-    
-  }
+  const saveToNotionHandler = () => {};
   return (
     <div className="container">
       <input onChange={onImageChange} type="file" />
-     
+
       <div>
         <img className="upload-image" src={image} alt="" />
       </div>

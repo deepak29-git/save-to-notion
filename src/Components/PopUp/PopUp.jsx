@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "../Modal2/Modal2.css";
-export const Modal2 = () => {
+import "../PopUp/PopUp.css";
+export const PopUp = () => {
   const [show, setShow] = useState(false);
 
   return (

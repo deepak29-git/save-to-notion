@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Modal2 } from "../Modal2/Modal2";
+import { PopUp } from "../PopUp/PopUp";
 import "../Button/Button.css";
 export const Button = () => {
   const [show, setShow] = useState(false);
@@ -9,7 +9,7 @@ export const Button = () => {
         <button onClick={() => (!show ? setShow(true) : setShow(false))}>
           show Modal
         </button>
-      {show && <Modal2 />}
+        {show && <PopUp />}
       </div>
     </>
   );
