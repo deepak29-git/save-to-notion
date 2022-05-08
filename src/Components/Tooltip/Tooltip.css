@@ -1,0 +1,8 @@
+.save{
+    padding: 0.5rem;
+    background-color: var(--greyish-black);
+    color: var(--white-color);
+    position: fixed;
+    cursor: pointer;
+    font-weight: 600;
+}
