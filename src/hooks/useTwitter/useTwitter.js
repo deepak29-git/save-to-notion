@@ -29,7 +29,7 @@ function useTwitter() {
       if (error !== "") {
         console.error({ error, response });
       } else {
-        const media = [];
+        let media = [];
         if (response.includes) {
           media = response.includes.media.map((media) =>
             media.type === "photo"
@@ -44,7 +44,7 @@ function useTwitter() {
         });
       }
     }
-  }, [loading]);
+  }, [loading, response, error]);
 
   return { loading, tweetData, lookupTweet };
 }
