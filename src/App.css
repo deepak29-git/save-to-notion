@@ -1,4 +1,10 @@
+
 :root{
     --greyish-black: #2d2d2d;
-    --white-color: white;
+     --primary-color: #ef4444;
+  --primary-hover: #dc2626;
+  --grey-color: #e5e7eb;
+  --black-color: #000000;
+  --white-color: #ffffff;
 }
+
