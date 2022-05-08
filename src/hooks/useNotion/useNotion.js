@@ -90,7 +90,7 @@ function useNotion() {
     const properties = Object.assign({}, generatePropertiesBlock(data.title));
     const axiosParams = {
       method: "post",
-      url: "v1/pages",
+      url: "https://api.notion.com/v1/pages",
       headers: {
         Accept: "application/json",
         "Notion-Version": "2022-02-22",

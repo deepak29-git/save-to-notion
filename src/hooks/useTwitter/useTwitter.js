@@ -9,7 +9,7 @@ function useTwitter() {
   async function lookupTweet(tweetId) {
     const axiosParams = {
       method: "get",
-      url: `2/tweets/${tweetId}`,
+      url: `https://api.twitter.com/2/tweets/${tweetId}`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
